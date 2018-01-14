@@ -31,6 +31,8 @@ public:
 	void keyDown(KeyEvent event) override;
 	void keyUp(KeyEvent event) override;
 	void fileDrop(FileDropEvent event) override;
+	void resize() override;
+
 	void update() override;
 	void draw() override;
 	void cleanup() override;
@@ -103,6 +105,11 @@ void VideodrommDirectApp::setUIVisibility(bool visible)
 	{
 		hideCursor();
 	}
+}
+void VideodrommDirectApp::resize()
+{
+	mVDUI->resize();
+	ui::disconnectWindow(getWindow());
 }
 void VideodrommDirectApp::fileDrop(FileDropEvent event)
 {
